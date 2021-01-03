@@ -1,0 +1,18 @@
+ %Bloco de código
+\begin{code}
+	\caption{}
+	\label{code:hoisting}
+	\begin{javascriptcode}
+	
+	\end{javascriptcode}
+		
+\end{code}
+
+
+%link
+\begin{link}
+	\captionof{link}{}
+	\label{link:table-of-comparsion}
+	\centering
+	\url{https://dorey.github.io/JavaScript-Equality-Table/unified/}
+\end{link}

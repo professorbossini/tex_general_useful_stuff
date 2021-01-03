@@ -1,0 +1,170 @@
+\documentclass[a4paper,12pt,oneside]{book}
+
+%encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%portuguese
+\usepackage[portuguese]{babel}
+
+%hyphenation
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+
+\usepackage{graphicx}
+\usepackage{datetime}
+
+\usepackage{caption}
+\usepackage[many]{tcolorbox}
+
+
+%programming languages
+\usepackage[newfloat=true]{minted}
+\newminted{javascript}{highlightcolor=yellow,linenos,breakanywhere=true,tabsize=2,obeytabs,autogobble,frame=lines,framesep=2mm}
+
+%for links
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue]{hyperref}
+
+%space before minipages
+%\usepackage[parfill]{parskip}
+%\setlength{\parskip}{2ex}
+
+%whole document margins
+\usepackage[bottom=3.5cm]{geometry}
+
+%couting listing according to section
+\usepackage{listings,chngcntr}
+
+\usepackage{xcolor}
+
+%prevent floats from floating to other sections
+\usepackage[section]{placeins}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HEADER AND FOOTER STUFF%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{scalerel}
+\pagestyle{fancy}
+\fancyhf{}
+\patchcmd{\footrule}
+{}
+{\color{lightgray}}
+{}
+{}
+%
+\fancyhead[L,C]{}
+\fancyhead[R]{{\scriptsize Professor Rodrigo Bossini\\\href{mailto:professorbossini@gmail.com}{\color{black}{\textit{professorbossini@gmail.com}}}}}
+\fancyfoot[L]{}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\scaleto{$$\lim_{x\to 0} \sin (\frac{\pi}{x})$$}{10pt}\\\scaleto{\textit{\href{www.rodrigobossini.com.br}{\color{black}{www.rodrigobossini.com.br}}}}{8pt}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.001pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HEADER AND FOOTER STUFF%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ENVIRONMENTS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%new commands
+%environment and caption for minted
+%\newenvironment{code}{
+%	\captionsetup{type=listing,within=section}
+%	\vspace{-\parskip}
+%	\begin{minipage}{0.95\textwidth}
+%	
+%}{
+%	\end{minipage}
+%}
+%\SetupFloatingEnvironment{listing}{name=Bloco de Código,placement={h!}}
+
+%environment for links
+%\DeclareFloatingEnvironment[fileext=frm,placement=h!,name=Frame,within=section]{link}
+%\captionsetup[link]{name=Link,position=top,skip=-.5pt}
+%\DeclareFloatingEnvironment[fileext=frm,placement=h!,name=FrameCode,within=section]{code}
+%\captionsetup[code]{name=Bloco de Código,position=top,skip=-10pt}
+
+\newenvironment{link}{
+	\captionsetup[table]{name=Link,position=top,skip=-0.01pt}
+	\vspace{8pt}
+	\begin{minipage}{.95\textwidth}
+	}{
+	\end{minipage}
+	\vspace{8pt}
+}
+
+
+\newenvironment{code}{
+	\captionsetup[listing]{name=Bloco de Código,position=top,skip=-10pt}
+	\vspace{8pt}
+	\begin{minipage}{.95\textwidth}
+}{
+	\end{minipage}
+	\vspace{8pt}
+}
+
+\newenvironment{itemizenopagebreak}{
+	\begin{samepage}
+	\begin{itemize}
+
+}{
+
+	\end{itemize}
+
+	\end{samepage}
+
+}
+
+\newenvironment{nota}{
+	\centering
+	\begin{minipage}{.95\textwidth}
+	\vspace{.5cm}
+	\hrule
+	\vspace{5pt}
+	\textbf{\textit{Nota.}}		
+}{
+	\vspace{5pt}
+	\hrule
+	\vspace{.5cm}
+	\end{minipage}
+	
+}
+\newenvironment{definicao}{
+	 \begin{tcolorbox}[colback=yellow!10!white,
+		colframe=white!20!black,
+		title=\textsc{\texttt{Definição}},  
+		center, 
+		valign=top, 
+		halign=left,
+		before skip=0.8cm, 
+		after skip=1.2cm,
+		center title, 
+		width=.95\textwidth]
+}{
+		\end{tcolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ENVIRONMENTS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+\begin{document}
+%couting listing for blocks of code and table for links according to section
+\counterwithin{listing}{section}
+\counterwithin{table}{section}
+\author{Professor Rodrigo Bossini}
+\title{React Native}
+\date{}
+
+\maketitle
+\frontmatter
+\tableofcontents
+\mainmatter
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}
